@@ -1,4 +1,5 @@
 import {createMuiTheme} from "@material-ui/core/styles";
+import { withTheme } from "@material-ui/styles";
 
 //Blue (Header and Footer) #2065A5
 //Navy (Search Bar) #314259
@@ -15,7 +16,8 @@ export default createMuiTheme({
     palette: {
         common: {
             bright: `${brightBlue}`,
-            grey: `${backgroundGrey}`
+            grey: `${backgroundGrey}`,
+            navy: `${searchBarBlue}`,
         },
 
         primary: {
@@ -28,6 +30,14 @@ export default createMuiTheme({
             fontFamily: "Raleway",
             textTransform: "none",
             fontWeight: "700",
+            fontSize: "1rem",
+        },
+
+        search: {
+            color: "#FFFFFF",
+            fontFamily: "Raleway",
+            textTransform: "None",
+            fontWeight: "400",
             fontSize: "1rem",
         },
     }

@@ -12,6 +12,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Header/>
+      <div style={{backgroundColor: "#333333"}}></div>
     </ThemeProvider>
   );
 }
