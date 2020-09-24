@@ -74,6 +74,14 @@ const useStyles = makeStyles((theme) => ({
         ...theme.typography.search,
         //backgroundColor: theme.palette.common.navy,
         marginLeft: "15em",
+
+        [theme.breakpoints.down("lg")]: {
+            marginLeft: "10em",
+        },
+
+        [theme.breakpoints.down("md")]: {
+            marginLeft: "5em",
+        },
     },
 
     //Tabs

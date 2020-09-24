@@ -7,12 +7,12 @@ import { BrowswerRouter, Route, Redirect, Switch } from 'react-router-dom';
 
 //My Components
 import Header from './user/components/Header';
+import Home from './user/pages/Home';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Header/>
-      <div style={{backgroundColor: "#333333"}}></div>
+      <Home/>
     </ThemeProvider>
   );
 }
