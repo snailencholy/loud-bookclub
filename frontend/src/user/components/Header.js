@@ -11,7 +11,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
 
-import logo from "../../Assets/no-background.png"
+import logo from "../../Assets/svg-logo.svg"
 import { TextField } from '@material-ui/core';
 
 //Function to make the header look like it floats on top of the page when scrolled.
@@ -87,13 +87,37 @@ const useStyles = makeStyles((theme) => ({
     //Tabs
     tabContainer: {
         marginLeft: "auto",
+
+        [theme.breakpoints.down("md")]: {
+            marginLeft: ".25em",
+            marginRight: "5em",
+        }, 
+
+        [theme.breakpoints.down("sm")]: {
+            marginLeft: ".05em",
+            marginRight: "5em",
+        },
     },
 
     tab: {
         ...theme.typography.tab,
-        minWidth: 20,
-        marginLeft: "25px",
+        minWidth: 10,
+        marginLeft: "8em",
         marginRight: "10em",
+
+        [theme.breakpoints.down("lg")]: {
+            marginLeft: "7em",
+            marginRight: "7em"
+        },
+
+        [theme.breakpoints.down("md")]: {
+            minWidth: 1,
+            //fontSize: "5rem",
+            marginLeft: "2em",
+            marginRight: "2em",
+        },
+
+        
         
     },
 
@@ -143,7 +167,7 @@ export default function Header(props) {
                                 variant="filled"
                                 className={classes.searchBar}
                                 id="search"
-                                placeholder="Search for a Book"
+                                placeholder="Search for a book"
                             />
                        </form>
                        {tabs}

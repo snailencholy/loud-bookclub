@@ -4,6 +4,7 @@ import { useTheme } from '@material-ui/core/styles';
 
 import Header from '../components/Header';
 import Card from '../components/Card';
+import Footer from '../components/Footer';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -21,6 +22,7 @@ export default function Home(){
         <React.Fragment>
             <Header/>
             <Card />
+            <Footer />
         </React.Fragment>
         
     );
