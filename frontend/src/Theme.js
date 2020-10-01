@@ -12,6 +12,7 @@ const brightBlue = "#2065A5"
 const searchBarBlue = "#314259"
 const backgroundGrey = "#333333"
 const cardGrey = "#E6E6E6"
+const textBlock = "#A6A6A6"
 
 export default createMuiTheme({
     palette: {
@@ -20,6 +21,7 @@ export default createMuiTheme({
             grey: `${backgroundGrey}`,
             navy: `${searchBarBlue}`,
             lightGrey: `${cardGrey}`,
+            medGrey: `${textBlock}`,
         },
 
         primary: {
@@ -28,6 +30,12 @@ export default createMuiTheme({
     },
 
     typography: {
+        h3: {
+            fontFamily: "Raleway",
+            fontSize: "2.5rem",
+            color: grey,
+        },
+
         tab: {
             fontFamily: "Raleway",
             textTransform: "none",
