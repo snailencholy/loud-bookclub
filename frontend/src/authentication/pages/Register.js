@@ -1,104 +1,117 @@
 import React, { useState } from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Input from '@material-ui/core/Input';
-import FormControl from '@material-ui/core/FormControl'
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import "../auth.css"
+import {
+    Grid,
+    Form,
+    Segment,
+    Button,
+    Header,
+    Message,
+    Image
+    //Icon
+  } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
 
 
 import simpleLogo from '../../Assets/tab-icon_1.svg'
 
-const useStyles = makeStyles((theme) => ({
-    mainContainer: {
-        marginRight: "35em",
-        marginLeft: "35em",
-        marginTop: "5em",
-        marginBottom: "5em",
-        width: "50em",
-        height: "50em",
-        background: theme.palette.common.lightGrey,
-    },
 
-    logoContainer: {
-        background: theme.palette.common.bright,
-    },
-
-    titleBlock: {
-        margin: "2em",
-        background: theme.palette.common.textBlock,
-    },
-
-    gridItems: {
-        marginTop: "5em",
-        width: "50em",
-    },
-
-
-}))
 
 
 function Register() {
 
-    const classes = useStyles();
+    const [userName, setUserName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [passwordConfirmation, setPasswordConfirmation] = useState('')
 
+    const onChange = event => {
+        let valid;
 
+        switch (event.target.name) {
+            case "username":
+                setUserName(event.target.value);
+                console.log(userName)
+            case "email":
+                setEmail(event.target.value);
+            case "password":
+            case "passwordConfirmation": 
+            default: break; 
+        }
+    }
     
     return(
-        <Grid container direction="column" alignContent="center" alignItems="center" className={classes.mainContainer}>
-            <Grid container className={classes.logoContainer}>
-                <Grid item>
-                    <Button component={Link} to="/">
-                        <img src={simpleLogo} height="80" width="80" alt="Simple Logo"/>
-                    </Button>
-                </Grid>
-            </Grid>
-            <Grid container direction="column" alignItems="center" alignContent="center" >
-                <Grid item className={classes.titleBlock}>
-                    <Typography variant="h3" fontFamily="raleway">Register for Loud Bookclub today</Typography>
-                </Grid>
-            </Grid>
-            <Grid container direction="column" alignItems="center" alignContent="center">
-                <form>
-                    <Grid item className={classes.gridItems}>
-                        <FormControl fullWidth>
-                            <Input
-                                id="email"
-                                defaultValue="Please enter your email"
-                                variant="filled" 
-                            />
-                        </FormControl>
-                    </Grid>
-                    <Grid item className={classes.gridItems}>
-                        <FormControl fullWidth>
-                            <Input
-                                id="username"
-                                defaultValue="Please enter a username"
-                                variant="filled" 
-                            />
-                        </FormControl>
-                    </Grid>
-                    <Grid item className={classes.gridItems}>
-                        <FormControl fullWidth>
-                            <Input
-                                id="password"
-                                defaultValue="Please enter a password"
-                                variant="filled" 
-                            />
-                        </FormControl>
-                    </Grid>
-                    <Grid item className={classes.gridItems}>
-                        <FormControl fullWidth>
-                            <Input
-                                id="passwordConf"
-                                defaultValue="Please confirm your password"
-                                variant="filled" 
-                            />
-                        </FormControl>
-                    </Grid>
-                </form>
-            </Grid>
+
+        <Grid textAlign="center" verticalAlign="middle" className="auth">
+            <Grid.Column style={{ maxWidth: 450 }}>
+                <Header as="h1" icon textAlign="center" className="typography" style={{color: "#E6E6E6"}}>
+                    <Image src={simpleLogo}  size="medium" />
+                    Register for Loud Bookclub
+                </Header>
+                <Form size="large" className="form">
+                    <Segment stacked>
+                        <Form.Input 
+                            fluid
+                            name="username"
+                            icon="user"
+                            iconPosition="left"
+                            placeholder="Username"
+                            onChange={onChange}
+                            //value={username}
+                            type="text"
+                        />
+
+                        <Form.Input
+                            fluid
+                            name="email"
+                            icon="mail"
+                            iconPosition="left"
+                            placeholder="Email"
+                            type="text"
+                        />
+
+                        <Form.Input
+                            fluid
+                            name="password"
+                            icon="lock"
+                            iconPosition="left"
+                            placeholder="Password"
+                            //onChange={this.handleChange}
+                            //value={password}
+                            //className={this.handleInputError(errors, "password")}
+                            type="password"
+                        />
+
+                        <Form.Input
+                            fluid
+                            name="passwordConfirmation"
+                            icon="repeat"
+                            iconPosition="left"
+                            placeholder="Password Confirmation"
+                            //onChange={this.handleChange}
+                            //value={passwordConfirmation}
+                            //className={this.handleInputError(errors, "password")}
+                            type="password"
+                        />
+
+                        <Button
+                            //disabled={loading}
+                            //className={loading ? "loading" : ""}
+                            className="typography"
+                            style={{ backgroundColor: "#2065A5"}}//color="#2065A5"
+                            fluid
+                            size="large"
+                        >
+                            Submit
+                        </Button>
+
+                    </Segment>
+                </Form>
+
+                <Message>
+                    Already a user? <Link to="/login">Login</Link>
+                </Message>
+            </Grid.Column>
         </Grid>
     );
 }

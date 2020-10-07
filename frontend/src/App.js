@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import Header from './user/components/Header';
 import Home from './user/pages/Home';
 import Register from './authentication/pages/Register';
+import Login from './authentication/pages/Login';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
         <Switch>
           <Route exact path="/" render={(props) => <Home {...props} />}/>
           <Route exact path="/register" component={(props) => <Register {...props} />} />
+          <Route exact path="/login" component={(props) => <Login {...props} />} />
+
         </Switch>
       </BrowserRouter>
       
