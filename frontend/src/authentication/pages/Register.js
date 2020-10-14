@@ -76,6 +76,13 @@ function Register() {
         }
     }
     
+    function validate(user) {
+
+    }
+
+    function sendToAPI(user) {
+        
+    }
 
     const onSubmit = event => {
         
@@ -90,6 +97,7 @@ function Register() {
 
             if(password !== passwordConfirmation) {
                 alert("passwords do not match")
+                window.location.reload();
 
             } else if (password === passwordConfirmation && username && email) {
                 newUser = {
@@ -98,15 +106,12 @@ function Register() {
                     password: password
                 }
 
-                //alert(newUser.username, newUser.email, newUser.password)
+                console.log(newUser)
+                setUserName("");
+                setEmail("");
+                setPassword("");
+                setPasswordConfirmation("");
             }
-        
-
-        setUserName("");
-        setEmail("");
-        setPassword("");
-        setPasswordConfirmation("");
-
     }
 
 
@@ -139,6 +144,7 @@ function Register() {
                             placeholder="Email"
                             onChange={onChange}
                             error={emailHelper.length !== 0}
+                            //value={email}
                             type="text"
                         />
 

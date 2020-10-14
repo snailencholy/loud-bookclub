@@ -10,12 +10,61 @@ import {
     Image
     //Icon
   } from "semantic-ui-react";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 
 import simpleLogo from '../../Assets/tab-icon_1.svg'
 
 function Login() {
+
+    const history = useHistory();
+
+    const [username, setUserName] = useState('')
+
+    const [password, setPassword] = useState('')
+
+
+
+    const onChange = event => {
+        switch (event.target.name) {
+            case "username":
+                setUserName(event.target.value)
+            
+            case "password":
+                setPassword(event.target.value)
+        }
+    }
+
+    const submit = event => {
+        let user = {
+            username: username,
+            password: password
+        }
+
+        if (validate(user)){
+            history.push("/")
+        } else {
+            window.location.reload();
+            
+        }
+        
+    }
+
+    function validate(user) {
+        if (user.username.length !== 0 && user.password.length !== 0) {
+            return sendToAPI(user);
+        } else {
+            alert("Wrong username or password")
+            return false;
+        }
+    }
+
+    function sendToAPI(user) {
+        //When the backend is in place we need to send the
+        //user and validate the credentials against the database
+        return true;
+    }
+
     return(
         <Grid textAlign="center" verticalAlign="middle" className="auth">
             <Grid.Column style={{ maxWidth: 450 }}>
@@ -31,17 +80,7 @@ function Login() {
                             icon="user"
                             iconPosition="left"
                             placeholder="Username"
-                            //onChange={this.handleChange}
-                            //value={username}
-                            type="text"
-                        />
-
-                        <Form.Input
-                            fluid
-                            name="email"
-                            icon="mail"
-                            iconPosition="left"
-                            placeholder="Email"
+                            onChange={onChange}
                             type="text"
                         />
 
@@ -51,9 +90,7 @@ function Login() {
                             icon="lock"
                             iconPosition="left"
                             placeholder="Password"
-                            //onChange={this.handleChange}
-                            //value={password}
-                            //className={this.handleInputError(errors, "password")}
+                            onChange={onChange}
                             type="password"
                         />
 
@@ -65,6 +102,7 @@ function Login() {
                             style={{ backgroundColor: "#2065A5"}}//color="#2065A5"
                             fluid
                             size="large"
+                            onClick={submit}
                         >
                             Submit
                         </Button>

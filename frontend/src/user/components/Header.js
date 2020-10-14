@@ -9,6 +9,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import { Link } from 'react-router-dom';
 
 
 import logo from "../../Assets/svg-logo.svg"
@@ -146,6 +147,7 @@ export default function Header(props) {
                 <Tab
                     className={classes.tab}
                     label="Login/Register"
+                    component={Link} to="/login"
                 />
             </Tabs>             
         </React.Fragment>
