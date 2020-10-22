@@ -15,7 +15,9 @@ import { Link } from 'react-router-dom';
 
 import simpleLogo from '../../Assets/tab-icon_1.svg'
 
-
+//TODO: Refactor all of this to controlled inputs.
+//      also would probably be wise to make this
+//      a class component instead of a function component
 
 
 function Register() {
@@ -33,7 +35,7 @@ function Register() {
     const [passwordConfHelper, setPasswordConfHelper] = useState('')
 
 
-    
+    //NEEDS A OVERHAUL
 
     const onChange = event => {
         let valid;
@@ -111,6 +113,7 @@ function Register() {
                 setEmail("");
                 setPassword("");
                 setPasswordConfirmation("");
+                
             }
     }
 
@@ -144,7 +147,7 @@ function Register() {
                             placeholder="Email"
                             onChange={onChange}
                             error={emailHelper.length !== 0}
-                            //value={email}
+                            value={email}
                             type="text"
                         />
 
@@ -155,7 +158,7 @@ function Register() {
                             iconPosition="left"
                             placeholder="Password"
                             onChange={onChange}
-                            //value={password}
+                            value={password}
                             error={passwordHelper.length !== 0}
                             type="password"
                         />
@@ -168,7 +171,7 @@ function Register() {
                             placeholder="Password Confirmation"
                             onChange={onChange}
                             error={passwordConfHelper.length !== 0}
-                            //value={passwordConfirmation}
+                            value={passwordConfirmation}
                             //className={this.handleInputError(errors, "password")}
                             type="password"
                         />

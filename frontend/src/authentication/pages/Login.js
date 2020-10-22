@@ -15,6 +15,9 @@ import { Link, useHistory } from 'react-router-dom';
 
 import simpleLogo from '../../Assets/tab-icon_1.svg'
 
+//TODO: Refactor into a class component and make the inputs controlled.
+
+
 function Login() {
 
     const history = useHistory();

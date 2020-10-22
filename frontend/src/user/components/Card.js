@@ -7,6 +7,12 @@ import { makeStyles, withTheme, mergeClasses } from "@material-ui/styles";
 import { useTheme } from '@material-ui/core/styles';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
+//TODO: This needs a major refactor to make it much more reusable.
+//      Should probably be broken down into multiple components.
+//      Number of cards and text, icons, etc... should be props.
+//      This should have one template that is rendered based on
+//      outside logic.
+
 
 const useStyles = makeStyles((theme) => ({
     cardStyleTop: {
