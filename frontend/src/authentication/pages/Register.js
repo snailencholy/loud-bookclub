@@ -177,8 +177,6 @@ function Register() {
                         />
 
                         <Button
-                            //disabled={loading}
-                            //className={loading ? "loading" : ""}
                             name="submit"
                             onClick={onSubmit}
                             className="typography"
