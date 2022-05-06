@@ -14,6 +14,14 @@ import {
     Tab
 } from '@mui/material'
 
+
+//
+// Routing
+//
+import {
+    NavLink
+} from 'react-router-dom'
+
 //
 // Assets
 //
@@ -42,6 +50,7 @@ interface HeaderProps {
 const url = 'localhost:3000'
 
 
+
 /********************************** 
 /          Main Function          /
 /  
@@ -60,7 +69,9 @@ const Header = (props: HeaderProps) => {
                                 {
                                     props.tabs.map(tab => {
                                         return (
-                                            <Tab key={tab} label={tab} style={{fontFamily:'Berlin Sans FB', color:'#FFF'}}/>
+                                            <NavLink key={tab} to={`/${tab}`} >
+                                                <Tab key={tab} label={tab} style={{fontFamily:'Berlin Sans FB', color:'#FFF', marginLeft:'5vw', opacity:1}}/>
+                                            </NavLink>
                                         )
                                     })
                                 }

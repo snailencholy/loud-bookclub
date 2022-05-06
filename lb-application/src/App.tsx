@@ -52,10 +52,10 @@ const App = () => {
                 <Route path='/' element={<Landing/>} />
                     
                 {/* Login Page */}    
-                <Route path='/login' element={<Login />}/>
+                <Route path='/LOGIN' element={<Login />}/>
 
                 {/* Registration Page */}
-                <Route path='/register' element={<Register />}/>
+                <Route path='/REGISTER' element={<Register />}/>
 
                 {/* User Page */}
                 <Route path='/user/uid' />
